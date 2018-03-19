@@ -116,6 +116,15 @@ Eu busquei desenhar um triangulo preenchido, como seria proposto como um extra. 
 
 ![TentativaTriangulo](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/triangulopreenchido_tentativa.png)
 
+
+
+# Curiosidades
+
+- Por algum motivo, que não descobri, em alguns momentos da rasterização, um pixel sai é plotado numa posição completamente diferente da proposta, porém sem atrapalhar a rasterização.
+- Na implementação do circulo, é possível alterar a qualidade da imagem diminuindo a incrementação do angulo, o que gera mais iterações. Inicialmete ele é incrimentado em 1 a cada iteração, diminuindo para 0.1 ou 0.01 a imagem melhora. No entanto, o custo computacional cresce bastante.
+
+
+
 Por: Yuri Félix Ramalho de Oliveira, aluno de Ciência da Computação, na UFPB.
 _____________________________________________________________________________________________________________________________
 # REFERÊNCIAS 
