@@ -17,7 +17,7 @@ Como cada pixel da tela ocupa quatro bytes, devido as quatro componentes de core
 
 Como resultado da implementação, temos:
 
-![PutPixel](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/putPixels.png)
+![PutPixel](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/putPixels.png)
 
 
 # Desenhando retas - DrawLine
@@ -28,11 +28,11 @@ Quando se deseja desenhar uma linha na tela, pensamos inicialmente em escrever u
 
 Por exemplo, a implementação da reta R, nos mostra
 
-![ErroDrawLine](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/erro_drawline.png)
+![ErroDrawLine](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/erro_drawline.png)
 
 Quando deveria mostrar:
 
-![CorretoDrawLine](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/drawline_correto.png)
+![CorretoDrawLine](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/drawline_correto.png)
 
 
 A correção do problema é feita utilizando-se do algoritmo de Bresenham, pois tal solução apresentada ser a forma mais eficiente de se resolver a questão.
@@ -45,14 +45,14 @@ O algoritmo, porém, apenas funciona para retas de 0 a 45 graus. Ou seja, retas 
 
 Dividindo o plano carteziano em 8 octantes, temos:
 
-![Octantes](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/octantes.png)
+![Octantes](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/octantes.png)
 
 
 Para o octante 2, basta inverter os valores de x e y, assim, a reta continua tendo menos que 45°, mas reprensentando 90°. Os Octantes acima do eixo x e a direita do eixo y (7 e 8), podem ser representados com o algoritmo os octantes 1 e 2, porém, com a reta crescendo negativamente (pois o y cresce para baixo). Assim, basta decrementar a posição y do pixel, quando este era incrementado.É possível notar que as retas a esquerda do eixo Y (Octantes 3 a 6) são as mesmas retas a direita do eixo x, apenas invertidas. Bastando então, fazer com que o deltaX seja invertido, para resolver o problema.
 
 O resultado é o seguinte:
 
-![DrawLineCompleto](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/drawline_completo.png)
+![DrawLineCompleto](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/drawline_completo.png)
 
 Portanto, o método DrawLine recebe dois pontos de coordenadas x e y e duas cores para interpolação.
 
@@ -73,8 +73,8 @@ DrawLine(pontoB, ponto C, corB, corC);
 
 Como resultado, temos:
 
-![DrawTriangle](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/drawtriangle1.png)
-![DrawTriangle](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/drawtriangle2.png)
+![DrawTriangle](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/drawtriangle1.png)
+![DrawTriangle](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/drawtriangle2.png)
 
 
 # Outras Aplicações extras 
@@ -83,12 +83,12 @@ Podemos também desenvolver outras formas de utilizar os algoritmos desenvolvido
 
 A implementação é simples! Partindo do ponto central C, basta calcular o ponto P de coordenadas X e Y que serão, respectivamente, o raio*cos(angulo*PI/180) e o raio*sen(angulo*PI/180).A partir daí, basta um laço que traça retas do ponto central C, até o ponto P, incrementando o angulo de 0 até o angulo escolhido como criterio de parada. 
 
-![Circle](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/circle_green_black.png)
-![Circle](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/circle_magenta_blue.png)
+![Circle](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/circle_green_black.png)
+![Circle](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/circle_magenta_blue.png)
 
 Uma outra implementação é o desenho de circunferencias não preenchidas, bastando trocar o DrawLine() por DrawPixel no algoritmo da circunferencia.
 
-![CircleVazio](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/circulo_vazio.png)
+![CircleVazio](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/circulo_vazio.png)
 
 
 
@@ -100,7 +100,7 @@ Uma outra implementação é o desenho de circunferencias não preenchidas, bast
 1. Quando buscava entender o algoritmo de bresenham, fiz alguns testes e percebi que, desenhando linhas partindo de um ponto fixo e imcrementando x ou y, tinha um triangulo retangulo. Consegui generalizar para alguns triangulos, mas não chegava a todos os casos;
 2. A outra forma foi a partir do algoritmo do circulo, sendo alterado para a reta ir até mais que um ponto fixo e não mais o raio. O algoritmo funcionava, mas o triangulo era feito ainda com base nos angulos e não em pontos fixos.Talvez seja possível generalizar o código fazendo o processo inverso (coordenadas cartesianas para polares).Seguirei tentato e espero um dia conseguir, pois fiquei curioso. O resultado parcial foi o seguinte:
 
-![TentativaTriangulo](https://github.com/yrflx/CG---Tarefa-1/raw/master/Printscreens/triangulopreenchido_tentativa.png)
+![TentativaTriangulo](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/triangulopreenchido_tentativa.png)
 
 
 # REFERÊNCIAS 
