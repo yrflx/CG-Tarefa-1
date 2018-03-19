@@ -34,8 +34,7 @@ Quando deveria mostrar:
 
 ![CorretoDrawLine](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/drawline_correto.png)
 
-
-A correção do problema é feita utilizando-se do algoritmo de Bresenham, pois tal solução apresentada ser a forma mais eficiente de se resolver a questão.
+A correção do problema é feita utilizando-se do algoritmo de Bresenham, pois tal solução apresentada ser a forma mais eficiente de se resolver a questão, dispensando o uso de operações custosas que poderiam solucionar o problema do modo anterior.
 
 Para entender, podemos considerar uma reta que interceptada duas colunas de pixel, para cada coluna, existe um pixel acima ou abaixo. A decisão sobre qual pintar, se tomada com base no cálculo da distância entre ambos, acarretaria em uma alta carga computacional. Portanto, o algoritmo toma como base o critério do ponto médio e, dessa forma, observando a localização do ponto médio entre o par de pixels em relação a reta. Caso o ponto médio esteja abaixo, pinta-se o pixel superior. Caso contrário, escolhe-se o pixel inferior. 
 O algoritmo, porém, apenas funciona para retas de 0 a 45 graus. Ou seja, retas do primeiro octante. É preciso então generalizar o algoritmo.
