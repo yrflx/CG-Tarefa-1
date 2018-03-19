@@ -1,11 +1,12 @@
-# Introdução à Computação Grafica - Tarefa 1;
+# Introdução à Computação Grafica - Tarefa 1
+
 
 Este repositório se destina a apresentar os resultados da implementação de algoritmos de rasterização de pontos e linhas. Sendo motivado pela "Tarefa 1" da disciplina de Introdução à Computação Gráfica na UFPB.Para tal, foi disponibilizado pelo prof. Christian Azambuja Pagot, um Framework destinado à simular o acesso direto à memória de video, visto que os sistemas operacionais bloqueiam tal operação. Portanto, a rasterização aqui apresentada será, de maneira simulada, uma escrita direta na memória de video.
 
 
 # O Pixel
 
-Em computação , um pixel se define como o menor elemento de uma imagem.Sendo um agrupamento deles, a própria imagem. A ele, é possível definir uma cor, através de uma combinação de três elementos (red, green e blue) que recebem, cada um, valores de 0 a 255 e formam o Padrão RGB. Por exemplo, sabemos que a cor Amarelo é o resultado da sobreposição das cores Vermelho e Verde. Desta forma, Amarelo pode ser representada no padrão RGB como (255, 255, 0). Ou seja, a união dos níveis máximos de vermelho e verde, e o azul com intensidade 0. Além dos três elementos básicos, um quarto elemento representativo da transparencia, pode ser representado. Assim, formamos o RGBA.Visto que cada elemento pode assumir 256 níveis, é preciso de 8 bits para cada elemento, nos dando 4 bytes por pixel. 
+Em computação , um pixel se define como o menor elemento de uma imagem.Sendo um agrupamento deles, a própria imagem. A ele, é possível definir uma cor, através de uma combinação de três elementos (red, green e blue) que recebem, cada um, valores de 0 a 255 e formam o Padrão RGB. Por exemplo, sabemos que a cor Amarelo é o resultado da sobreposição das cores Vermelho e Verde. Desta forma, Amarelo pode ser representada no padrão RGB como (255, 255, 0). Ou seja, a união dos níveis máximos de vermelho e verde, e o azul com intensidade 0. Além dos três elementos básicos, um quarto elemento representativo da transparencia, pode ser adicionado. Assim, formamos o RGBA.Visto que cada elemento pode assumir 256 níveis, é preciso de 8 bits para cada elemento, nos dando 4 bytes por pixel. 
 
 # A exibição do Pixel (PutPixel)
 
@@ -39,6 +40,7 @@ A correção do problema é feita utilizando-se do algoritmo de Bresenham, pois 
 Para entender, podemos considerar uma reta que interceptada duas colunas de pixel, para cada coluna, existe um pixel acima ou abaixo. A decisão sobre qual pintar, se tomada com base no cálculo da distância entre ambos, acarretaria em uma alta carga computacional. Portanto, o algoritmo toma como base o critério do ponto médio e, dessa forma, observando a localização do ponto médio entre o par de pixels em relação a reta. Caso o ponto médio esteja abaixo, pinta-se o pixel superior. Caso contrário, escolhe-se o pixel inferior. 
 O algoritmo, porém, apenas funciona para retas de 0 a 45 graus. Ou seja, retas do primeiro octante. É preciso então generalizar o algoritmo.
 
+Portanto, o método DrawLine recebe dois pontos de coordenadas x e y e duas cores para interpolação.
 
 # Generalização do Algoritmo de Bresenham
 
@@ -53,7 +55,6 @@ O resultado é o seguinte:
 
 ![DrawLineCompleto](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/drawline_completo.png)
 
-Portanto, o método DrawLine recebe dois pontos de coordenadas x e y e duas cores para interpolação.
 
 # Desenhando Triangulos - DrawTriangle
 
@@ -76,7 +77,7 @@ Como resultado, temos:
 ![DrawTriangle](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/drawtriangle2.png)
 
 
-# Outras Aplicações extras 
+# Outras Aplicações  
 
 Podemos também desenvolver outras formas de utilizar os algoritmos desenvolvidos aqui. Um exemplo é a utilização para desenhar arcos e circulos preenchidos ou não.Para isso, foi criado o método DrawCircle que recebe como parametros um ponto central, duas cores para interpolação, o raio  e o angulo que o arco deve traçar - No caso de uma circunferencia, 360.
 
@@ -93,18 +94,22 @@ Uma outra implementação é o desenho de circunferencias não preenchidas, bast
 
 # Considerações Finais
 
-- A implementação do putPixel é demasiadamente simples, no entanto o algoritmo de bresenham trás dificuldades no que diz respeito à generalização do mesmo. A partir dele, as implementações ficam mais interessantes, tanto é que cheguei ao método dos circulos com certa facilidade, a dificulde foi lembrar de coodenadas polares, mas nada que um Youtube não ajude. 
+A implementação do putPixel é demasiadamente simples, no entanto o algoritmo de bresenham trás dificuldades no que diz respeito à generalização do mesmo. A partir dele, as implementações ficam mais interessantes, tanto é que cheguei ao método dos circulos com certa facilidade, a dificulde foi lembrar de coodenadas polares, mas nada que um Youtube não ajude. 
 
-- Eu busquei desenhar um triangulo preenchido, como seria proposto como um extra. Obtive sucesso para algumas situações e de duas maneiras:
-1. Quando buscava entender o algoritmo de bresenham, fiz alguns testes e percebi que, desenhando linhas partindo de um ponto fixo e imcrementando x ou y, tinha um triangulo retangulo. Consegui generalizar para alguns triangulos, mas não chegava a todos os casos;
-2. A outra forma foi a partir do algoritmo do circulo, sendo alterado para a reta ir até mais que um ponto fixo e não mais o raio. O algoritmo funcionava, mas o triangulo era feito ainda com base nos angulos e não em pontos fixos.Talvez seja possível generalizar o código fazendo o processo inverso (coordenadas cartesianas para polares).Seguirei tentato e espero um dia conseguir, pois fiquei curioso. O resultado parcial foi o seguinte:
+Eu busquei desenhar um triangulo preenchido, como seria proposto como um extra. Obtive sucesso para algumas situações e de duas maneiras:
+
+- Quando buscava entender o algoritmo de bresenham, fiz alguns testes e percebi que, desenhando linhas partindo de um ponto fixo e imcrementando x ou y, tinha um triangulo retangulo. Consegui generalizar para alguns triangulos, mas não chegava a todos os casos;
+- A outra forma foi a partir do algoritmo do circulo, sendo alterado para a reta ir até mais que um ponto fixo e não mais o raio. O algoritmo funcionava, mas o triangulo era feito ainda com base nos angulos e não em pontos fixos.Talvez seja possível generalizar o código fazendo o processo inverso (coordenadas cartesianas para polares).Seguirei tentato e espero um dia conseguir, pois fiquei curioso. O resultado parcial foi o seguinte:
 
 ![TentativaTriangulo](https://github.com/yrflx/CG-Tarefa-1/raw/master/Printscreens/triangulopreenchido_tentativa.png)
 
-
+Por: Yuri Félix Ramalho de Oliveira, aluno de Ciência da Computação, na UFPB.
+_____________________________________________________________________________________________________________________________
 # REFERÊNCIAS 
 
 - Slides do Prof. Christian;
 - https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm;
 - Buscas aleatórias sobre coordenadas polares ;
 - Blogs de ex-alunos da disciplina;
+
+
